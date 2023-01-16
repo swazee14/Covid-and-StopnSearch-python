@@ -1,0 +1,2 @@
+def covid():
+    print("covid:")
