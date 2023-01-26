@@ -1,2 +1,0 @@
-def covid():
-    print("covid:")
