@@ -21,6 +21,12 @@ def area_chart(title, max_date, max_value, df, ylabel="Count of %-change in covi
     plt.grid(alpha=0.5)
     plt.show()
     
+def scatter_plot(plt_title, x_axis, y_axis, color):
+    plt.scatter(x_axis, y_axis, c=color)
+    plt.title(plt_title, fontsize=14)
+    plt.rcParams["figure.figsize"] = (20,3)
+    plt.show()
+    
 def diverging_text_visuals(title, df, column):
     df['colors'] = ['red' if x < 0 else 'green' for x in df[column]]
     df.sort_values(column, inplace=True)
@@ -52,15 +58,12 @@ def grouped_bar_chart_visual( title, data, x, ylabel, legend):
     plt.show()
     
 def tree_map_visual(chart_title, data_size, labels ):
-    
     plt.close()
     colors=['#264653','#fca311','#023e8a','#ffd166','#f07167','#590d22','#81b29a', '#780000', '#ffecd1', '#3c096c', '#fff3b0']
     fig = plt.gcf()
     fig.set_size_inches(13, 8)
     sns.set_style(style="whitegrid")
-    sizes= data_size
-    label= labels
-    squarify.plot(sizes=sizes, label=label, alpha=0.6,color=colors).set(title=chart_title)
+    squarify.plot(sizes=data_size, label=labels, alpha=0.6,color=colors).set(title=chart_title)
     plt.title(chart_title, fontsize=16, fontweight="bold")
     plt.axis('off')
     
@@ -92,9 +95,6 @@ def simple_bar_chart(title, value, label):
 def population_pyramid(title, df, label_1, label_2, city, x_label, y_label):
     # Draw Plot
     plt.figure(figsize=(13,10), dpi= 80)
-    # group_col = group_col_val
-    # order_of_bars = df.Stage.unique()[::-1]
-    # colors = [plt.cm.Spectral(i/float(len(label_1)-1)) for i in range(len(df[group_col].unique()))]
 
     # for c, group in zip(colors, df[group_col].unique()):
     sns.barplot(x=label_1, y=city, data=df, order=city, color='#ffd166'
@@ -112,7 +112,7 @@ def population_pyramid(title, df, label_1, label_2, city, x_label, y_label):
     plt.legend()
     plt.show()
     
-def bar_chart(title, data, categories, explode, label_title):
+def pie_chart(title, data, categories, explode, label_title):
     # Draw Plot
     fig, ax = plt.subplots(figsize=(12, 7), subplot_kw=dict(aspect="equal"), dpi= 80)
 

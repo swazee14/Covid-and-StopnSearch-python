@@ -17,7 +17,7 @@ def covid(covid_frame,stopnS_frame):
         'Total cases per day over a given period',
         'Total cases per month over a given period',
         'Total cases on a given day',
-        'Areas with highest cases on a given day',
+        'Areas with highest percentage change in cases on a given day',
             'Comparison of cases in two areas per day'
     ]
     
@@ -67,7 +67,7 @@ def covid(covid_frame,stopnS_frame):
             
             button(onedate_frame,'SUBMIT',150,280, command=lambda: cases_on_a_given_day(date.get())) 
             
-        elif combo.get() == "Areas with highest cases on a given day":
+        elif combo.get() == "Areas with highest percentage change in cases on a given day":
             twodate_frame.pack_forget()
             onedate_frame.pack(fill='both',expand=1) 
             
